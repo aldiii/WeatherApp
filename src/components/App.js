@@ -1,11 +1,24 @@
+import React, { useState } from "react";
 import "./App.css";
-import WeatherLocationInput from "./WeatherLocationInput";
+import WeatherLocationForm from "./WeatherLocationForm";
 
 function App() {
+  const [city, setCity] = useState("");
+  const handleInputChange = (e) => {
+    setCity(e.target.value);
+  };
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    alert("sublited");
+  };
   return (
     <div className="App">
       <h1>Weather App</h1>
-      <WeatherLocationInput></WeatherLocationInput>
+      <WeatherLocationForm
+        value={city}
+        handleChange={handleInputChange}
+        handleSubmit={handleFormSubmit}
+      ></WeatherLocationForm>
     </div>
   );
 }
