@@ -9,7 +9,6 @@ function App() {
   };
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    alert("sublited");
   };
   return (
     <div className="App">
