@@ -5,9 +5,19 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  padding: 20px;
   background-image: linear-gradient(#b4b5e5, #17408c);
   color: white;
 }
 
+h1 {
+  align-self: flex-start;
+  font-weight: normal;
+  margin-left: 30px;
+}
 @media (prefers-reduced-motion: no-preference) {
+}
+
+* {
+  box-sizing: border-box;
 }

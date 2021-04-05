@@ -1,40 +1,68 @@
 import React from "react";
+import "./CurrentWeather.css";
 
 function CurrentWeather({ weatherData }) {
-  console.log(weatherData);
   return (
     <div className="currentWeather">
-      <h2>{weatherData.name}</h2>
-      <div className="currentWeather__main">
-        <img
-          src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`}
-          alt="ikona pogody"
-        ></img>
-        <p>{weatherData.weather[0].description}</p>
-        <p>{weatherData.main.temp}&deg; C</p>
-        <p>{weatherData.main.temp_max}&deg; C</p>
-        <p>{weatherData.main.temp_min}&deg; C</p>
-      </div>
-      <div className="currentWeather__details">
-        <div>
-          <p>Temperatura odczuwalna</p>
-          <p>{weatherData.main.feels_like}&deg; C</p>
+      <h2 className="currentWeather__location">{weatherData.name}</h2>
+      <div className="currentWeather__data">
+        <div className="currentWeather__main">
+          <div className="currentWeather__description">
+            <img
+              src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`}
+              alt="ikona pogody"
+            ></img>
+            <p>{weatherData.weather[0].description}</p>
+          </div>
+          <div className="currentWeather__temperatures">
+            <p>{Math.round(weatherData.main.temp)}&deg;</p>
+            <div className="currentWeather__minMaxTemp">
+              <p className="currentWeather__maxTemp">
+                {Math.round(weatherData.main.temp_max)}&deg; C
+              </p>
+              <p>{Math.round(weatherData.main.temp_min)}&deg; C</p>
+            </div>
+          </div>
         </div>
-        <div>
-          <p>Prędkość wiatru</p>
-          <p>{weatherData.wind.speed} m/s</p>
-        </div>
-        <div>
-          <p>Wilgotność</p>
-          <p>{weatherData.main.humidity} %</p>
-        </div>
-        <div>
-          <p>Ciśnienie</p>
-          <p>{weatherData.main.pressure} hPa</p>
-        </div>
-        <div>
-          <p>Widoczność</p>
-          <p>{weatherData.visibility} m</p>
+        <div className="currentWeather__details">
+          <div>
+            <p className="currentWeather__detailsTitle">
+              Temperatura odczuwalna
+            </p>
+            <p className="currentWeather__detailsData">
+              {weatherData.main.feels_like}&deg; C
+            </p>
+          </div>
+          <div>
+            <p className="currentWeather__detailsTitle">Prędkość wiatru</p>
+            <p className="currentWeather__detailsData">
+              {weatherData.wind.speed} m/s
+            </p>
+          </div>
+          <div>
+            <p className="currentWeather__detailsTitle">Wilgotność</p>
+            <p className="currentWeather__detailsData">
+              {weatherData.main.humidity} %
+            </p>
+          </div>
+          <div>
+            <p className="currentWeather__detailsTitle">Ciśnienie</p>
+            <p className="currentWeather__detailsData">
+              {weatherData.main.pressure} hPa
+            </p>
+          </div>
+          <div>
+            <p className="currentWeather__detailsTitle">Widoczność</p>
+            <p className="currentWeather__detailsData">
+              {weatherData.visibility} m
+            </p>
+          </div>
+          <div>
+            <p className="currentWeather__detailsTitle">Zachmurzenie</p>
+            <p className="currentWeather__detailsData">
+              {weatherData.clouds.all} %
+            </p>
+          </div>
         </div>
       </div>
     </div>
