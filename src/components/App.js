@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import WeatherLocationForm from "./WeatherLocationForm";
+import CurrentWeather from "./CurrentWeather";
 import { getCurrentWeather } from "../api/AxiosOpenWeatherApi";
 
 function App() {
@@ -23,6 +24,9 @@ function App() {
         handleChange={handleInputChange}
         handleSubmit={handleFormSubmit}
       ></WeatherLocationForm>
+      {currentWeatherData ? (
+        <CurrentWeather weatherData={currentWeatherData}></CurrentWeather>
+      ) : null}
     </div>
   );
 }
