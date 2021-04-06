@@ -5,6 +5,14 @@
   text-align: left;
   padding-left: 30px;
   font-size: 2.5rem;
+  margin: 0;
+}
+.currentWeather_date {
+  text-align: left;
+  padding-left: 30px;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  margin: 0;
 }
 .currentWeather__data {
   display: flex;

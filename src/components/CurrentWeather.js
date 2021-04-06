@@ -1,10 +1,14 @@
 import React from "react";
+import { getLocaleDate } from "../utils";
 import "./CurrentWeather.css";
 
 function CurrentWeather({ weatherData }) {
   return (
     <div className="currentWeather">
       <h2 className="currentWeather__location">{weatherData.name}</h2>
+      <p className="currentWeather__date">
+        {getLocaleDate(weatherData.dt, weatherData.timezone)}
+      </p>
       <div className="currentWeather__data">
         <div className="currentWeather__main">
           <div className="currentWeather__description">
