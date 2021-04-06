@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import WeatherLocationForm from "./WeatherLocationForm";
 import CurrentWeather from "./CurrentWeather";
+import DailyWeather from "./DailyWeather";
 import {
   getCurrentWeather,
   getDailyForecast,
@@ -18,8 +19,11 @@ function App() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     getCurrentWeather(city, "pl")
-      .then((apiData) => setCurrentWeatherData(apiData))
-      .then(() => getDailyForecast(currentWeatherData.coord, "pl"))
+      .then((apiData) => {
+        setCurrentWeatherData(apiData);
+        return apiData.coord;
+      })
+      .then((coord) => getDailyForecast(coord, "pl"))
       .then((forecastData) => {
         setDailyForecastData(forecastData);
       })
@@ -35,6 +39,9 @@ function App() {
       ></WeatherLocationForm>
       {currentWeatherData ? (
         <CurrentWeather weatherData={currentWeatherData}></CurrentWeather>
+      ) : null}
+      {dailyForecastData ? (
+        <DailyWeather weatherData={dailyForecastData.daily}></DailyWeather>
       ) : null}
     </div>
   );
