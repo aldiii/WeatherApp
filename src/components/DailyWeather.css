@@ -34,8 +34,3 @@
     flex: 1 0 22%;
   }
 }
-@media (max-width: 400px) {
-  .DailyCard {
-    flex: 1 0 45%;
-  }
-}

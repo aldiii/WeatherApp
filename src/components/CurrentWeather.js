@@ -1,5 +1,6 @@
 import React from "react";
 import { getLocaleDate } from "../utils";
+import Icon from "./Icon";
 import "./CurrentWeather.css";
 
 function CurrentWeather({ weatherData }) {
@@ -12,10 +13,7 @@ function CurrentWeather({ weatherData }) {
       <div className="currentWeather__data">
         <div className="currentWeather__main">
           <div className="currentWeather__description">
-            <img
-              src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`}
-              alt="ikona pogody"
-            ></img>
+            <Icon iconId={weatherData.weather[0].icon} />
             <p>{weatherData.weather[0].description}</p>
           </div>
           <div className="currentWeather__temperatures">

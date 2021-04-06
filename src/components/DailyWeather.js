@@ -1,5 +1,6 @@
 import React from "react";
 import { getWeekday } from "../utils";
+import Icon from "./Icon";
 import "./DailyWeather.css";
 
 function DailyWeather({ weatherData }) {
@@ -10,10 +11,7 @@ function DailyWeather({ weatherData }) {
           <p className="DailyCard__weekday">
             {getWeekday(dailyForecast.dt, dailyForecast.timezone)}
           </p>
-          <img
-            src={`http://openweathermap.org/img/wn/${dailyForecast.weather[0].icon}.png`}
-            alt="ikona pogody"
-          />
+          <Icon iconId={dailyForecast.weather[0].icon} />
           <p className="DailyCard_temp">
             <span>{Math.round(dailyForecast.temp.max)}&deg;C</span>
             <span>{Math.round(dailyForecast.temp.min)}&deg;C</span>
