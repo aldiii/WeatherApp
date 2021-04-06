@@ -2,11 +2,16 @@ import React, { useState } from "react";
 import "./App.css";
 import WeatherLocationForm from "./WeatherLocationForm";
 import CurrentWeather from "./CurrentWeather";
-import { getCurrentWeather } from "../api/AxiosOpenWeatherApi";
+import {
+  getCurrentWeather,
+  getDailyForecast,
+} from "../api/AxiosOpenWeatherApi";
 
 function App() {
   const [city, setCity] = useState("");
   const [currentWeatherData, setCurrentWeatherData] = useState(null);
+  const [dailyForecastData, setDailyForecastData] = useState(null);
+
   const handleInputChange = (e) => {
     setCity(e.target.value);
   };
@@ -14,6 +19,10 @@ function App() {
     e.preventDefault();
     getCurrentWeather(city, "pl")
       .then((apiData) => setCurrentWeatherData(apiData))
+      .then(() => getDailyForecast(currentWeatherData.coord, "pl"))
+      .then((forecastData) => {
+        setDailyForecastData(forecastData);
+      })
       .catch((error) => console.error(error.msg));
   };
   return (
