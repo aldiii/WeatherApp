@@ -41,7 +41,9 @@ function App() {
         <CurrentWeather weatherData={currentWeatherData}></CurrentWeather>
       ) : null}
       {dailyForecastData ? (
-        <DailyWeather weatherData={dailyForecastData.daily}></DailyWeather>
+        <DailyWeather
+          weatherData={dailyForecastData.daily.slice(1)}
+        ></DailyWeather>
       ) : null}
     </div>
   );

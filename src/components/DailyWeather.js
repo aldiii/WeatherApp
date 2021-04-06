@@ -3,7 +3,6 @@ import { getWeekday } from "../utils";
 import "./DailyWeather.css";
 
 function DailyWeather({ weatherData }) {
-  weatherData.shift();
   return (
     <div className="DailyWeather">
       {weatherData.map((dailyForecast) => (

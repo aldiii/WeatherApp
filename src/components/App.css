@@ -6,7 +6,17 @@
   align-items: center;
   min-height: 100vh;
   padding: 20px;
-  background-image: linear-gradient(#b4b5e5, #17408c);
+  background: linear-gradient(153.03deg, #0500ff 16.92%, #000000 87.01%),
+    linear-gradient(121.28deg, #ffffff 70.31%, rgba(25, 0, 177, 0.85) 100%),
+    linear-gradient(195.81deg, #ffb6b6 8.74%, #00492f 100%),
+    linear-gradient(269.62deg, #ffffff 0.44%, #0077aa 99.56%),
+    radial-gradient(77.85% 100% at 50% 0%, #6bff71 0%, #190024 100%),
+    linear-gradient(339.45deg, #00ff38 1.34%, #ff0000 73.07%),
+    linear-gradient(201.13deg, #22f400 -0.47%, #dbff00 100%),
+    linear-gradient(94.04deg, #18007a 0%, #00d5c8 51.04%, #f4ff75 100%), #ffffff;
+  background-blend-mode: exclusion, multiply, overlay, multiply, color-dodge,
+    difference, difference, normal, normal;
+  background-attachment: fixed;
   color: white;
 }
 

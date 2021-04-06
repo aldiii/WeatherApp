@@ -3,8 +3,6 @@ import "./WeatherLocationForm.css";
 function WeatherLocationInput({ value, handleChange, handleSubmit }) {
   return (
     <form className="weatherLocationForm" onSubmit={(e) => handleSubmit(e)}>
-      <label htmlFor="locationInput">Wpisz miasto: </label>
-      <br></br>
       <div className="weatherLocationForm__group">
         <input
           id="locationInput"
@@ -13,6 +11,7 @@ function WeatherLocationInput({ value, handleChange, handleSubmit }) {
           type="text"
           value={value}
           onChange={(e) => handleChange(e)}
+          title="Wpisz nazwę miasta"
         ></input>
 
         <button

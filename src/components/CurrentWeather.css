@@ -7,7 +7,7 @@
   font-size: 2.5rem;
   margin: 0;
 }
-.currentWeather_date {
+.currentWeather__date {
   text-align: left;
   padding-left: 30px;
   font-size: 1.4rem;
@@ -19,7 +19,7 @@
   align-items: center;
   justify-content: center;
   width: 96%;
-  margin: 1% auto;
+  margin: 50px auto;
 }
 
 .currentWeather__main {
@@ -53,7 +53,6 @@
 }
 .currentWeather__details {
   background-color: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   border-radius: 10px;
   display: flex;
@@ -73,4 +72,23 @@
 
 .currentWeather__detailsData {
   font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .currentWeather__data {
+    flex-direction: column;
+  }
+
+  .currentWeather__main {
+    margin-bottom: 50px;
+  }
+  .weatherLocationForm__group {
+    min-width: 70vw;
+  }
+}
+
+@media (max-width: 400px) {
+  .currentWeather__details div {
+    flex: 1 0 45%;
+  }
 }

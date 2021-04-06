@@ -1,10 +1,7 @@
-.weatherLocationForm {
-  min-width: 70%;
-}
 .weatherLocationForm__group {
   overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
   border-radius: 10px;
   padding: 0;
@@ -12,12 +9,13 @@
   align-items: center;
   color: white;
   margin: 20px 0;
+  min-width: 500px;
 }
 .weatherLocationForm__input {
+  flex: 1 1 500px;
   padding: 10px;
   border: none;
   background-color: transparent;
-
   font-size: 18px;
   color: inherit;
   outline: none;
@@ -25,11 +23,11 @@
 }
 
 .weatherLocationForm__input::placeholder {
-  color: lightblue;
+  color: lightslategray;
 }
 
 .weatherLocationForm__button {
-  margin-left: auto;
+  flex: 0 0 80px;
   border: none;
   border-left: 1px solid rgba(255, 255, 255, 0.2);
   background-color: transparent;
@@ -37,4 +35,16 @@
   color: inherit;
   font-size: 18px;
   font-weight: bold;
+}
+
+.weatherLocationForm__button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .weatherLocationForm {
+    width: 80vw;
+  }
+  .weatherLocationForm__input {
+  }
 }
