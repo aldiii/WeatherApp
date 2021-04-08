@@ -3,6 +3,7 @@ import "./App.css";
 import WeatherLocationForm from "./WeatherLocationForm";
 import CurrentWeather from "./CurrentWeather";
 import DailyWeather from "./DailyWeather";
+import ErrorMessage from "./ErrorMessage";
 import {
   getCurrentWeather,
   getDailyForecast,
@@ -12,12 +13,18 @@ function App() {
   const [city, setCity] = useState("");
   const [currentWeatherData, setCurrentWeatherData] = useState(null);
   const [dailyForecastData, setDailyForecastData] = useState(null);
+  const [error, setError] = useState(false);
 
   const handleInputChange = (e) => {
-    setCity(e.target.value);
+    setCity(e.target.value.trim());
+    setError(false);
   };
   const handleFormSubmit = (e) => {
     e.preventDefault();
+
+    if (city.length === 0) {
+      return setError(true);
+    }
     getCurrentWeather(city, "pl")
       .then((apiData) => {
         setCurrentWeatherData(apiData);
@@ -27,7 +34,10 @@ function App() {
       .then((forecastData) => {
         setDailyForecastData(forecastData);
       })
-      .catch((error) => console.error(error.msg));
+      .catch((error) => {
+        setError(true);
+        console.error(error.msg);
+      });
   };
   return (
     <div className="App">
@@ -37,6 +47,9 @@ function App() {
         handleChange={handleInputChange}
         handleSubmit={handleFormSubmit}
       ></WeatherLocationForm>
+      {error ? (
+        <ErrorMessage msg="Proszę wpisz poprawną nazwę miasta!" />
+      ) : null}
       {currentWeatherData ? (
         <CurrentWeather weatherData={currentWeatherData}></CurrentWeather>
       ) : null}

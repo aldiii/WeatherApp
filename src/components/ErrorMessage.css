@@ -1,0 +1,9 @@
+.ErrorMessage {
+  background-color: rgba(230, 32, 32, 0.7);
+  border: solid 1px rgb(230, 32, 32);
+  color: white;
+  padding: 0 15px;
+}
+.ErrorMessage p {
+  text-size: 1 rem;
+}
