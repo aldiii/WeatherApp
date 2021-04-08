@@ -1,9 +1,9 @@
-const UTCtoDate = (utcDate, timezone = 0) => {
-  return new Date((utcDate + timezone) * 1000);
+const UTCtoDate = (utcDate) => {
+  return new Date(utcDate * 1000);
 };
 
-export const getLocaleDate = (utcDate, timezone = 0, locale = "pl-PL") => {
-  const localeDate = UTCtoDate(utcDate, timezone);
+export const getLocaleDate = (utcDate, locale = "pl-PL") => {
+  const localeDate = UTCtoDate(utcDate);
   const options = {
     weekday: "long",
     year: "numeric",
@@ -12,12 +12,12 @@ export const getLocaleDate = (utcDate, timezone = 0, locale = "pl-PL") => {
     hour: "numeric",
     minute: "numeric",
   };
-
+  console.log(localeDate, utcDate);
   return localeDate.toLocaleString("locale", options);
 };
 
-export const getWeekday = (utcDate, timezone = 0, locale = "pl-PL") => {
-  const localeDate = UTCtoDate(utcDate, timezone);
+export const getWeekday = (utcDate, locale = "pl-PL") => {
+  const localeDate = UTCtoDate(utcDate);
   const options = {
     weekday: "long",
   };

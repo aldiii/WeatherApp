@@ -7,9 +7,7 @@ function CurrentWeather({ weatherData }) {
   return (
     <div className="currentWeather">
       <h2 className="currentWeather__location">{weatherData.name}</h2>
-      <p className="currentWeather__date">
-        {getLocaleDate(weatherData.dt, weatherData.timezone)}
-      </p>
+      <p className="currentWeather__date">{getLocaleDate(weatherData.dt)}</p>
       <div className="currentWeather__data">
         <div className="currentWeather__main">
           <div className="currentWeather__description">
