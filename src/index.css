@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+@media only screen and (max-device-width: 480px) {
+  html {
+    height: calc(100% + 60px);
+    min-height: calc(100% + 60px);
+  }
+}

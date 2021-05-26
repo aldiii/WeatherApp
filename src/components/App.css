@@ -25,9 +25,12 @@ h1 {
   font-weight: normal;
   margin-left: 30px;
 }
-@media (prefers-reduced-motion: no-preference) {
+@media only screen and (max-device-width: 480px) {
+  html {
+    height: calc(100% + 60px);
+    min-height: calc(100% + 60px);
+  }
 }
-
 * {
   box-sizing: border-box;
 }
